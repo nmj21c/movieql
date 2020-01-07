@@ -14,7 +14,7 @@
   "scripts": {
     "copy-resource": "cpy '**/*' '!**/*.ts' '../dist' --cwd=src --parents",
     "start": "npm run watch",
-    "build": "tsc",
+    "build": "rm -rf dist && tsc -d",
     "tsc-start": "tsc-watch --onSuccess \" node dist/index.js\"",
     "watch": "concurrently -k -p \"[{name}]\" -n \"Typescript, Node\" -c \"cyan.bold,yellow.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-node": "nodemon dist/index.js",
