@@ -10,4 +10,4 @@ const server: GraphQLServer = new GraphQLServer({
     resolvers: mergeResolvers(allResolvers)
 });
 
-server.start(() => console.log("Graphql server Running as localhost:4000 test"));
+server.start(() => console.log("Graphql server Running at localhost:4000"));
