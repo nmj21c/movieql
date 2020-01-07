@@ -2,11 +2,26 @@
   "name": "movieql",
   "version": "1.0.0",
   "description": "movie api with graphql",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/nmj21c/movieql",
   "author": "Jonghyun <nmj21c@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "apollo-server": "^2.9.15",
+    "graphql-yoga": "^1.18.3",
+    "merge-graphql-schemas": "^1.7.6"
+  },
+  "scripts": {
+    "copy-resource": "cpy '**/*' '!**/*.ts' '../dist' --cwd=src --parents",
+    "start": "npm run watch",
+    "legacy-start": "tsc-watch --onSuccess \" node dist/index.js\"",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"Typescript, Node\" -c \"cyan.bold,yellow.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "watch-node": "nodemon dist/index.js",
+    "watch-ts": "tsc -w"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "cpy-cli": "^3.0.0",
+    "del-cli": "^3.0.0"
   }
 }
