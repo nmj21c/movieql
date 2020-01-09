@@ -9,6 +9,7 @@
   "dependencies": {
     "apollo-datasource-rest": "^0.6.11",
     "apollo-server": "^2.9.15",
+    "express-session": "^1.17.0",
     "graphql-yoga": "^1.18.3",
     "merge-graphql-schemas": "^1.7.6"
   },
