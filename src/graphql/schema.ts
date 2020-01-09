@@ -1,18 +1,19 @@
 import gql from "graphql-tag";
 
 const typeDefs = gql`
-    type Person {
+    type Movie {
         id: Int!
-        name: String
-        age: Int
-        gender: String
+        title: String
+        rating: Float
+        summary: String
+        language: String
+        medium_cover_image: String
     },
 
     type Query {
         hello(name: String): String,
         name: String,
-        people: [Person]
-        person(id: Int): Person 
+        movies: [Movie]
     }
 `;
 

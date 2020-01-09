@@ -1,29 +1,14 @@
-const people = [
-    {
-        id: 1,
-        name: "Jeon Jonghyun",
-        age: 40,
-        gender: "male"
-    },
-    {
-        id: 2,
-        name: "Kim Daae",
-        age: 39,
-        gender: "female"
-    }
-];
+// import { getById, getMovies, addMovie, Movie, removeMovie } from "./datasource";
 
-const getById = (id:Number) => {
-    const filteredPeople = people.filter(person => person.id === id);
-    return filteredPeople[0];
-}
+import { Movie, MovieApi } from "./movieDatasource";
+
+const movieDatasource = new MovieApi();
 
 const resolvers = {
     Query: {
         hello: (_, {name}) => `Hello ${name || 'world'}`,
         name: () => 'Jonghyun',
-        people:  () => people,
-        person: (_, {id}) => getById(id)
+        movies: async () => await movieDatasource.getMovies()
     }
 };
 
