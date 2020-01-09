@@ -13,7 +13,10 @@ const typeDefs = gql`
     type Query {
         hello(name: String): String,
         name: String,
-        movies: [Movie]
+        movies(limit: Int, rating: Float): [Movie]
+        movie(id: Int): Movie
+        suggestions(id: Int): [Movie]
+
     }
 `;
 
